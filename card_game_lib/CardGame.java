@@ -8,11 +8,7 @@ public class CardGame {
   private Deck deck;
   private int numberOfPlayers;
 
-  public CardGame() {
-
-  }
-
-  public void startGame( String[] playerNames ) {
+  public CardGame( String[] playerNames ) {
 
     this.numberOfPlayers = playerNames.length;
     this.players = new Player[numberOfPlayers];
