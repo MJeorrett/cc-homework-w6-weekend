@@ -20,9 +20,11 @@ public class PlayerTest {
   }
 
   @Test
-  public void hasCardAfterTaking() {
+  public void hasCardAfterAdding() {
     this.testPlayer.addCard( this.threeOfSpades );
     assertEquals( true, this.testPlayer.hasCard( this.threeOfSpades ) );
   }
+
+  @Test
 
 }
