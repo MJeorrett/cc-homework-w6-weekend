@@ -4,24 +4,27 @@ import java.util.*;
 
 public class CardGame {
 
-  private ArrayList<Player> players;
+  private Player[] players;
   private Deck deck;
+  private int numberOfPlayers;
 
   public CardGame() {
 
   }
 
   public void startGame( String[] playerNames ) {
-    this.players = new ArrayList<Player>();
 
-    for ( String playerName : playerNames ) {
-      Player player = new Player( playerName );
-      players.add( player );
+    this.numberOfPlayers = playerNames.length;
+    this.players = new Player[numberOfPlayers];
+
+    for ( int i = 0; i < numberOfPlayers; i++ ) {
+      Player player = new Player( playerNames[i] );
+      this.players[i] = player;
     }
   }
 
   public int numberOfPlayers() {
-    return players.size();
+    return this.numberOfPlayers;
   }
 
 }
