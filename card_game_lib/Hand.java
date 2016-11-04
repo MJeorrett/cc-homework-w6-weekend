@@ -14,6 +14,10 @@ public class Hand {
     this.cards.add( card );
   }
 
+  public int cardCount() {
+    return this.cards.size();
+  }
+
   public boolean hasCard( Card testCard ) {
 
     for ( Card card : this.cards ) {
