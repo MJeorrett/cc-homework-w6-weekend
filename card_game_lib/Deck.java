@@ -1,7 +1,5 @@
 package card_game_lib;
 
-import java.util.ArrayList;
-
 public class Deck extends Hand {
 
   public Deck() {
