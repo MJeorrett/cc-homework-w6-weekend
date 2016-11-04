@@ -1,3 +1,5 @@
+package card_game_lib;
+
 import static org.junit.Assert.assertEquals;
 import org.junit.*;
 
@@ -9,14 +11,18 @@ public class CardGameTest {
 
   @Before
   public void before() {
-    this.cardGame = new CardGame();
     String[] playerNames = { "James", "Mark", "Derek", "Matthew" };
-    this.cardGame.startGame( playerNames );
+    this.cardGame = new CardGame( playerNames );
   }
 
   @Test
-  public void hasRightNumberOfPlayers() {
+  public void hasCorrectNumberOfPlayers() {
     assertEquals( 4, this.cardGame.numberOfPlayers() );
+  }
+
+  @Test
+  public void correctNumberOfPlayersCreated() {
+    assertEquals( 4, this.cardGame.getPlayers().length );
   }
 
 }
