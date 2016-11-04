@@ -22,4 +22,10 @@ public class DeckTest {
     }
   }
 
+  @Test
+  public void dealCardRemovesCard() {
+    Card card = this.testDeck.dealCard();
+    assertEquals( false, this.testDeck.hasCard( card ) );
+  }
+
 }

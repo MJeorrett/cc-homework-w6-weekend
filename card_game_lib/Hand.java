@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Hand {
 
-  ArrayList<Card> cards;
+  protected ArrayList<Card> cards;
 
   public Hand() {
     this.cards = new ArrayList<Card>();

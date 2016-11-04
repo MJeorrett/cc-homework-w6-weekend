@@ -10,4 +10,8 @@ public class Deck extends Hand {
       }
     }
   }
+
+  public Card dealCard() {
+    return this.cards.remove( 0 );
+  }
 }
