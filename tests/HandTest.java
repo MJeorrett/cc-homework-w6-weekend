@@ -17,11 +17,6 @@ public class HandTest {
   }
 
   @Test
-  public void handDoesntHaveCardWhenInitialised() {
-    assertEquals( false, this.testHand.hasCard( this.fiveOfClubs ) );
-  }
-
-  @Test
   public void addCardAddsCard() {
     this.testHand.addCard( this.fiveOfClubs );
     assertEquals( true, this.testHand.hasCard( this.fiveOfClubs ) );
