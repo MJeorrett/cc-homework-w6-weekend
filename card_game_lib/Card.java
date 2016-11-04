@@ -23,4 +23,10 @@ public class Card {
     return this.rank.toString() + " of " + this.suit.toString();
   }
 
+  public boolean equals( Card otherCard ) {
+    boolean suitsMatch = this.suit == otherCard.getSuit();
+    boolean ranksMatch = this.rank == otherCard.getRank();
+    return suitsMatch && ranksMatch;
+  }
+
 }

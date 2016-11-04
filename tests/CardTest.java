@@ -13,18 +13,24 @@ public class CardTest {
   }
 
   @Test
-  public void getSuit() {
+  public void canGetSuit() {
     assertEquals( Suit.HEARTS, this.tenOfHearts.getSuit() );
   }
 
   @Test
-  public void getRank() {
+  public void canGetRank() {
     assertEquals( Rank.TEN, this.tenOfHearts.getRank() );
   }
 
   @Test
-  public void toString() {
+  public void canToString() {
     assertEquals( "10 of Hearts", this.tenOfHearts.toString() );
+  }
+
+  @Test
+  public void sameRankAndSuitEqualsTrue() {
+    Card tenOfHearts_2 = new Card( Suit.HEARTS, Rank.TEN );
+    assertEquals( true, this.tenOfHearts.equals( tenOfHearts_2 ) );
   }
 
 }
