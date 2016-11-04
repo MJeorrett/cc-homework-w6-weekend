@@ -30,7 +30,7 @@ public class CardGame {
     return this.players;
   }
 
-  public void dealCards() {
+  public void dealRound() {
     for ( Player player : this.players ) {
       player.addCard( this.deck.dealCard() );
     }

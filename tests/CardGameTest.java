@@ -26,8 +26,8 @@ public class CardGameTest {
   }
 
   @Test
-  public void playersHaveCardsAfterDealing() {
-    this.cardGame.dealCards();
+  public void canDealRound() {
+    this.cardGame.dealRound();
     Player[] players = this.cardGame.getPlayers();
 
     for ( Player player : players ) {
