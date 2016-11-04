@@ -1,6 +1,8 @@
+package card_game_lib.tests;
+
 import card_game_lib.*;
 
-public class Runner {
+public class CardGameLibRunner {
 
   public static void main( String[] args ) {
 
