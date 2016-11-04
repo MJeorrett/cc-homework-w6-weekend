@@ -1,5 +1,7 @@
 package card_game_lib;
 
+import java.util.*;
+
 public class Deck extends Hand {
 
   public Deck() {
@@ -13,5 +15,9 @@ public class Deck extends Hand {
 
   public Card dealCard() {
     return this.cards.remove( 0 );
+  }
+
+  public void shuffle() {
+    Collections.shuffle( this.cards );
   }
 }
