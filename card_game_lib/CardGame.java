@@ -36,4 +36,8 @@ public class CardGame {
     }
   }
 
+  public void dealCardToPlayer( Player player ) {
+    player.addCard( this.deck.dealCard() );
+  }
+
 }
