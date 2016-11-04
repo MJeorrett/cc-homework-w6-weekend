@@ -16,4 +16,9 @@ public class PlayerTest {
   public void hasName() {
     assertEquals( "Martin", this.testPlayer.getName() );
   }
+
+  @Test
+  public void hasToString() {
+    assertEquals( "Player: Martin", this.testPlayer.toString() );
+  }
 }

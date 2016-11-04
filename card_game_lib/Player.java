@@ -12,4 +12,9 @@ public class Player extends Hand {
     return this.name;
   }
 
+  @Override
+  public String toString() {
+    return "Player: " + this.name;
+  }
+
 }
