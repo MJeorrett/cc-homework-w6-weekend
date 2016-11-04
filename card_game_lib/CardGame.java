@@ -10,6 +10,9 @@ public class CardGame {
 
   public CardGame( String[] playerNames ) {
 
+    this.deck = new Deck();
+    this.deck.shuffle();
+
     this.numberOfPlayers = playerNames.length;
     this.players = new Player[numberOfPlayers];
 
@@ -25,6 +28,12 @@ public class CardGame {
 
   public Player[] getPlayers() {
     return this.players;
+  }
+
+  public void dealCards() {
+    for ( Player player : this.players ) {
+      player.addCard( this.deck.dealCard() );
+    }
   }
 
 }

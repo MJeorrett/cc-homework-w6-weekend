@@ -23,4 +23,14 @@ public class CardGameTest {
     assertEquals( 4, this.cardGame.getPlayers().length );
   }
 
+  @Test
+  public void playersHaveCardsAfterDealing() {
+    this.cardGame.dealCards();
+    Player[] players = this.cardGame.getPlayers();
+
+    for ( Player player : players ) {
+      assertEquals( 1, player.cardCount() );
+    }
+  }
+
 }
