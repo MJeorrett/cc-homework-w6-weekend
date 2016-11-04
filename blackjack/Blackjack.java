@@ -8,11 +8,14 @@ public class Blackjack {
 
   public static final int MAX_NUMBER_PLAYERS = 10;
 
+  private CardGame cardGame;
+
   public Blackjack() {
-    this.getPlayerNames();
+    String[] playerNames = this.getPlayerNames();
+    this.cardGame = new CardGame( playerNames );
   }
 
-  private ArrayList getPlayerNames() {
+  private String[] getPlayerNames() {
     Scanner inputScanner = new Scanner( System.in );
     System.out.print( String.format( "Enter the number of players:( 1 -> %d ): ", MAX_NUMBER_PLAYERS ) );
     int numberOfPlayers = inputScanner.nextInt();
@@ -37,7 +40,10 @@ public class Blackjack {
       System.out.println( "  " + name );
     }
 
-    return playerNames;
+    String[] result = new String[playerNames.size()];
+    playerNames.toArray( result );
+
+    return result;
   }
 
 }
