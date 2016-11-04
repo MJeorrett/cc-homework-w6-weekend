@@ -23,7 +23,7 @@ public class CardGame {
     return this.numberOfPlayers;
   }
 
-  protected Player[] getPlayers() {
+  public Player[] getPlayers() {
     return this.players;
   }
 
