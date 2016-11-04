@@ -1,5 +1,7 @@
 package card_game_lib;
 
+import java.util.Collections;
+
 public class Deck extends Hand {
 
   public Deck() {
