@@ -22,4 +22,8 @@ public class Player {
     return this.hand.hasCard( card );
   }
 
+  public void removeCard( Card card ) {
+    this.hand.removeCard( card );
+  }
+
 }
