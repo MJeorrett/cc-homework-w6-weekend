@@ -25,4 +25,11 @@ public class HandTest {
     assertEquals( true, this.testHand.hasCard( this.fiveOfClubs ) );
   }
 
+  @Test
+  public void removeCard() {
+    this.testHand.addCard( this.fiveOfClubs );
+    this.testHand.removeCard( this.fiveOfClubs );
+    assertEquals( false, this.testHand.hasCard( this.fiveOfClubs ) );
+  }
+
 }

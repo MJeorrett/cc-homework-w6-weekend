@@ -25,4 +25,14 @@ public class Hand {
     return false;
   }
 
+  public void removeCard( Card card ) {
+
+    for ( int i = 0; i < this.cards.size(); i++ ) {
+      if ( this.cards.get( i ) == card ) {
+        this.cards.remove( i );
+      }
+    }
+
+  }
+
 }
