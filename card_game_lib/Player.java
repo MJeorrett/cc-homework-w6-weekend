@@ -14,7 +14,7 @@ public class Player {
     return this.name;
   }
 
-  public void takeCard( Card card ) {
+  public void addCard( Card card ) {
     this.hand.addCard( card );
   }
 

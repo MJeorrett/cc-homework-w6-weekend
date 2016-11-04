@@ -23,7 +23,7 @@ public class PlayerTest {
 
   @Test
   public void hasCardAfterTaking() {
-    this.testPlayer.takeCard( this.threeOfSpades );
+    this.testPlayer.addCard( this.threeOfSpades );
     assertEquals( true, this.testPlayer.hasCard( this.threeOfSpades ) );
   }
 
