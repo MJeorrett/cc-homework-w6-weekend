@@ -5,7 +5,7 @@ import card_game_lib.*;
 
 public class CardTest {
 
-  Card tenOfHearts;
+  private Card tenOfHearts;
 
   @Before
   public void before() {
