@@ -6,6 +6,11 @@ public class Dealer {
   private Deck deck;
   private int numberOfPlayers;
 
+  public Dealer( String[] playerNames ) {
+
+    this( playerNames, Dealer.getDefaultDeck() );
+  }
+
   public Dealer( String[] playerNames, Deck deck ) {
 
     this.deck = deck;
@@ -17,19 +22,6 @@ public class Dealer {
       Player player = new Player( playerNames[i] );
       this.players[i] = player;
     }
-  }
-
-  public Dealer( String[] playerNames ) {
-
-    this( playerNames, Dealer.getDefaultDeck() );
-  }
-
-  private static Deck getDefaultDeck() {
-
-    Deck deck = new Deck();
-    deck.shuffle();
-
-    return deck;
   }
 
   public int numberOfPlayers() {
@@ -48,6 +40,14 @@ public class Dealer {
 
   public void dealCardToPlayer( Player player ) {
     player.addCard( this.deck.dealCard() );
+  }
+
+  private static Deck getDefaultDeck() {
+
+    Deck deck = new Deck();
+    deck.shuffle();
+
+    return deck;
   }
 
 }
