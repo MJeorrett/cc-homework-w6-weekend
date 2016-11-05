@@ -4,7 +4,6 @@ public class Dealer {
 
   private Player[] players;
   private Deck deck;
-  private int numberOfPlayers;
 
   public Dealer( String[] playerNames ) {
 
@@ -41,7 +40,7 @@ public class Dealer {
   public void dealRounds( int number ) {
 
     for ( int i = 0; i < number; i++ ) {
-      
+
       this.dealRound();
     }
   }
