@@ -6,7 +6,7 @@ import card_game_lib.user_interface.*;
 
 public class Blackjack {
 
-  private Interfaceable userInterface;
+  private Interfaceable ui;
   private Dealer dealer;
 
   public static final int MAX_NUMBER_PLAYERS = 10;
@@ -31,11 +31,11 @@ public class Blackjack {
     rankValues.put( Rank.KING, new Integer( 10 ) );
   }
 
-  public Blackjack( Interfaceable userInterface ) {
+  public Blackjack( Interfaceable ui ) {
 
-    this.userInterface = userInterface;
+    this.ui = ui;
 
-    String[] playerNames = userInterface.getPlayerNames( 1, MAX_NUMBER_PLAYERS );
+    String[] playerNames = ui.getPlayerNames( 1, MAX_NUMBER_PLAYERS );
 
     this.dealer = new Dealer( playerNames );
 
