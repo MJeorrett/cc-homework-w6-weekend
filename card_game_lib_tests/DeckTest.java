@@ -30,7 +30,7 @@ public class DeckTest {
 
   @Test
   public void newDeckHas52Cards() {
-    assertEquals( 52, this.testDeck.cardCount() );
+    assertEquals( 52, this.testDeck.cardsRemaining() );
   }
 
 }

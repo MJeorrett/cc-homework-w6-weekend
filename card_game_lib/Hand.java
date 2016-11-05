@@ -16,7 +16,7 @@ public class Hand implements Displayable {
     this.cards.add( card );
   }
 
-  public int cardCount() {
+  public int cardsRemaining() {
     return this.cards.size();
   }
 
@@ -42,7 +42,7 @@ public class Hand implements Displayable {
   }
 
   public Card[] getCards() {
-    Card[] result = new Card[this.cardCount()];
+    Card[] result = new Card[this.cardsRemaining()];
     this.cards.toArray( result );
     return result;
   }

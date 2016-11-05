@@ -39,14 +39,14 @@ public class CardGameTest {
     Player[] players = this.cardGame.getPlayers();
 
     for ( Player player : players ) {
-      assertEquals( 1, player.cardCount() );
+      assertEquals( 1, player.cardsRemaining() );
     }
   }
 
   @Test
   public void canDealCardToPlayer() {
     this.cardGame.dealCardToPlayer( this.testPlayer );
-    assertEquals( 1, this.testPlayer.cardCount() );
+    assertEquals( 1, this.testPlayer.cardsRemaining() );
   }
 
 }

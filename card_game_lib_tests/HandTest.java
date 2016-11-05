@@ -29,17 +29,17 @@ public class HandTest {
 
   @Test
   public void cardCountInitiallyZero() {
-    assertEquals( 0, this.testHand.cardCount() );
+    assertEquals( 0, this.testHand.cardsRemaining() );
   }
 
   @Test
   public void addCardIncreasesCardCount() {
 
     this.testHand.addCard( this.fiveOfClubs );
-    assertEquals( 1, this.testHand.cardCount() );
+    assertEquals( 1, this.testHand.cardsRemaining() );
 
     this.testHand.addCard( this.kingOfSpades );
-    assertEquals( 2, this.testHand.cardCount() );
+    assertEquals( 2, this.testHand.cardsRemaining() );
   }
 
   @Test
