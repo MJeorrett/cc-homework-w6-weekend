@@ -1,8 +1,10 @@
 package card_game_lib;
 
+import card_game_lib.user_interface.*;
+
 import java.util.ArrayList;
 
-public class Hand {
+public class Hand implements Displayable {
 
   protected ArrayList<Card> cards;
 
@@ -43,6 +45,16 @@ public class Hand {
     Card[] result = new Card[this.cardCount()];
     this.cards.toArray( result );
     return result;
+  }
+
+  public String toDisStr() {
+    String displayString = "";
+
+    for ( Card card : this.cards ) {
+      displayString += card.toDisStr() + "\n";
+    }
+
+    return displayString;
   }
 
 }

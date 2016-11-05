@@ -1,6 +1,8 @@
 package card_game_lib;
 
-public class Card {
+import card_game_lib.user_interface.*;
+
+public class Card implements Displayable {
 
   private Suit suit;
   private Rank rank;
@@ -19,8 +21,8 @@ public class Card {
   }
 
   @Override
-  public String toString() {
-    return this.rank.toString() + " of " + this.suit.toString();
+  public String toDisStr() {
+    return this.rank.toDisStr() + " of " + this.suit.toDisStr();
   }
 
   public boolean equals( Card otherCard ) {

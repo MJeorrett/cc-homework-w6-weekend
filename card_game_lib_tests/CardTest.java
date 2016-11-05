@@ -23,8 +23,8 @@ public class CardTest {
   }
 
   @Test
-  public void canToString() {
-    assertEquals( "10 of Hearts", this.tenOfHearts.toString() );
+  public void canToDisStr() {
+    assertEquals( "10 of Hearts", this.tenOfHearts.toDisStr() );
   }
 
   @Test

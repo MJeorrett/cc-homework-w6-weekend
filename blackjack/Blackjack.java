@@ -35,6 +35,7 @@ public class Blackjack extends CardGame {
     this.userInterface = userInterface;
 
     String[] playerNames = userInterface.getPlayerNames( 1, MAX_NUMBER_PLAYERS );
+    
     this.initializeGame( playerNames );
 
     System.out.println( "---" );

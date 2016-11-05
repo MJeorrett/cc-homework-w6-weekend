@@ -12,7 +12,7 @@ public enum Suit {
     this.title = title;
   }
 
-  public String toString() {
+  public String toDisStr() {
     return this.title;
   }
 }

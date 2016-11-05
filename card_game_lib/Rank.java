@@ -21,7 +21,7 @@ public enum Rank {
     this.title = title;
   }
 
-  public String toString() {
+  public String toDisStr() {
     return this.title;
   }
 }
