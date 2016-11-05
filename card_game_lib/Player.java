@@ -12,6 +12,10 @@ public class Player extends Hand {
     return this.name;
   }
 
+  public Hand getHand() {
+    return (Hand)this;
+  }
+
   @Override
   public String toDisStr() {
     String cardsString = super.toDisStr();
