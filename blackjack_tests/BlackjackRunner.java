@@ -1,6 +1,7 @@
 package blackjack.tests;
 
 import card_game_lib.*;
+import card_game_lib.user_interface.*;
 import blackjack.*;
 
 public class BlackjackRunner {

@@ -6,6 +6,7 @@ import org.junit.*;
 import org.mockito.*;
 
 import card_game_lib.*;
+import card_game_lib.user_interface.*;
 import blackjack.*;
 
 public class CardGameTest {

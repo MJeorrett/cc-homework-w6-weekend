@@ -1,11 +1,11 @@
-package card_game_lib;
+package card_game_lib.user_interface;
 
 import java.util.*;
 
 public class UserInterface implements Interfaceable {
 
   public UserInterface() {
-    
+
   }
 
   public String[] getPlayerNames( int min, int max ) {

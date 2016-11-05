@@ -2,6 +2,7 @@ package blackjack;
 
 import java.util.*;
 import card_game_lib.*;
+import card_game_lib.user_interface.*;
 
 public class Blackjack extends CardGame {
 
