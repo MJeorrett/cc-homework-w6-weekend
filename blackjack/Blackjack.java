@@ -9,6 +9,9 @@ public class Blackjack extends CardGame {
   private Interfaceable userInterface;
 
   public static final int MAX_NUMBER_PLAYERS = 10;
+  public static final int TARGET_SCORE = 21;
+  public static final int ACE_HIGH_VALUE = 11;
+  public static final int ACE_LOW_VALUE = 1;
 
   private static final Map<Rank, Integer> rankValues;
   static {
@@ -46,11 +49,29 @@ public class Blackjack extends CardGame {
   public static int scoreHand( Hand hand ) {
 
     int score = 0;
+    int numberOfAces = 0;
     Rank rank;
 
     for ( Card card : hand.getCards() ) {
+
       rank = card.getRank();
-      score += rankValues.get( rank );
+
+      if ( rank == Rank.ACE ) {
+        numberOfAces++;
+      } else {
+        score += rankValues.get( rank );
+      }
+    }
+
+    if ( numberOfAces > 0 ) {
+
+      score += numberOfAces - 1;
+
+      if ( score <= TARGET_SCORE - ACE_HIGH_VALUE ) {
+        score += ACE_HIGH_VALUE;
+      } else {
+        score += ACE_LOW_VALUE;
+      }
     }
 
     return score;
