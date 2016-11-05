@@ -28,7 +28,7 @@ public class Blackjack {
 
   public Blackjack() {
 
-    String[] playerNames = CardGame.getNames( 0, MAX_NUMBER_PLAYERS );
+    String[] playerNames = UserInterface.getNames( 0, MAX_NUMBER_PLAYERS );
     this.cardGame = new CardGame( playerNames );
 
     System.out.println( "---" );
