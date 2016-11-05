@@ -28,4 +28,9 @@ public class DeckTest {
     assertEquals( false, this.testDeck.hasCard( card ) );
   }
 
+  @Test
+  public void newDeckHas52Cards() {
+    assertEquals( 52, this.testDeck.cardCount() );
+  }
+
 }
