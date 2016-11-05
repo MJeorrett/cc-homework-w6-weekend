@@ -6,10 +6,9 @@ public class Dealer {
   private Deck deck;
   private int numberOfPlayers;
 
-  public Dealer( String[] playerNames ) {
+  public Dealer( String[] playerNames, Deck deck ) {
 
-    this.deck = new Deck();
-    this.deck.shuffle();
+    this.deck = deck;
 
     this.numberOfPlayers = playerNames.length;
     this.players = new Player[numberOfPlayers];
@@ -18,6 +17,19 @@ public class Dealer {
       Player player = new Player( playerNames[i] );
       this.players[i] = player;
     }
+  }
+
+  public Dealer( String[] playerNames ) {
+
+    this( playerNames, Dealer.getDefaultDeck() );
+  }
+
+  private static Deck getDefaultDeck() {
+
+    Deck deck = new Deck();
+    deck.shuffle();
+
+    return deck;
   }
 
   public int numberOfPlayers() {
