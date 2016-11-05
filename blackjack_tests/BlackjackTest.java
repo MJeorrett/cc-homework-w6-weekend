@@ -1,8 +1,8 @@
-import static org.junit.Assert.assertEquals;
-import org.junit.*;
-
 import blackjack.*;
 import card_game_lib.*;
+
+import static org.junit.Assert.assertEquals;
+import org.junit.*;
 
 public class BlackjackTest {
 
@@ -103,7 +103,7 @@ public class BlackjackTest {
 
     this.testHand.addCard( this.jackOfDiamonds );
     this.testHand.addCard( this.kingOfSpades );
-    
+
     assertEquals( false, Blackjack.isBust( this.blackjackHand ) );
   }
 

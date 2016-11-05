@@ -4,9 +4,10 @@ import java.util.*;
 import card_game_lib.*;
 import card_game_lib.user_interface.*;
 
-public class Blackjack extends CardGame {
+public class Blackjack {
 
   private Interfaceable userInterface;
+  private Dealer dealer;
 
   public static final int MAX_NUMBER_PLAYERS = 10;
   public static final int TARGET_SCORE = 21;
@@ -35,8 +36,8 @@ public class Blackjack extends CardGame {
     this.userInterface = userInterface;
 
     String[] playerNames = userInterface.getPlayerNames( 1, MAX_NUMBER_PLAYERS );
-    
-    this.initializeGame( playerNames );
+
+    this.dealer = new Dealer( playerNames );
 
     System.out.println( "---" );
     System.out.println( "Ready to start with players: " );

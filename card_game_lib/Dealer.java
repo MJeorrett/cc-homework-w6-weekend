@@ -1,16 +1,12 @@
 package card_game_lib;
 
-public abstract class CardGame {
+public class Dealer {
 
   private Player[] players;
   private Deck deck;
   private int numberOfPlayers;
 
-  public CardGame() {
-    
-  }
-
-  public void initializeGame( String[] playerNames ) {
+  public Dealer( String[] playerNames ) {
 
     this.deck = new Deck();
     this.deck.shuffle();
