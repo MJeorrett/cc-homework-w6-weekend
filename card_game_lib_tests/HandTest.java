@@ -1,4 +1,5 @@
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertArrayEquals;
 import org.junit.*;
 
 import card_game_lib.*;
@@ -40,6 +41,14 @@ public class HandTest {
     this.testHand.addCard( this.fiveOfClubs );
     this.testHand.removeCard( this.fiveOfClubs );
     assertEquals( false, this.testHand.hasCard( this.fiveOfClubs ) );
+  }
+
+  @Test
+  public void canGetCards() {
+    this.testHand.addCard( this.fiveOfClubs );
+    this.testHand.addCard( this.kingOfSpades );
+    Card[] expected = { this.fiveOfClubs, this.kingOfSpades };
+    assertArrayEquals( expected, this.testHand.getCards() );
   }
 
 }

@@ -39,4 +39,10 @@ public class Hand {
 
   }
 
+  public Card[] getCards() {
+    Card[] result = new Card[this.cardCount()];
+    this.cards.toArray( result );
+    return result;
+  }
+
 }
