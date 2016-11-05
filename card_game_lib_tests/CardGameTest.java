@@ -2,6 +2,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.*;
 
 import card_game_lib.*;
+import blackjack.*;
 
 public class CardGameTest {
 
@@ -11,7 +12,8 @@ public class CardGameTest {
   @Before
   public void before() {
     String[] playerNames = { "James", "Mark", "Derek", "Matthew" };
-    this.cardGame = new CardGame( playerNames );
+    this.cardGame = new Blackjack();
+    this.cardGame.initializeGame( playerNames );
     this.testPlayer = new Player( "John" );
   }
 

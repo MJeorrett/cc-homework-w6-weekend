@@ -3,7 +3,7 @@ package blackjack;
 import java.util.*;
 import card_game_lib.*;
 
-public class Blackjack {
+public class Blackjack extends CardGame {
 
   public static final int MAX_NUMBER_PLAYERS = 10;
 
@@ -24,12 +24,10 @@ public class Blackjack {
     rankValues.put( Rank.KING, new Integer( 10 ) );
   }
 
-  private CardGame cardGame;
-
   public Blackjack() {
 
     String[] playerNames = UserInterface.getNames( 0, MAX_NUMBER_PLAYERS );
-    this.cardGame = new CardGame( playerNames );
+    this.initializeGame( playerNames );
 
     System.out.println( "---" );
     System.out.println( "Ready to start with players: " );
