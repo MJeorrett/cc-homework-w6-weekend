@@ -77,4 +77,13 @@ public class Blackjack extends CardGame {
     return score;
   }
 
+  public static boolean isBust( Hand hand ) {
+
+    if ( Blackjack.scoreHand( hand ) > TARGET_SCORE ) {
+      return true;
+    }
+
+    return false;
+  }
+
 }
