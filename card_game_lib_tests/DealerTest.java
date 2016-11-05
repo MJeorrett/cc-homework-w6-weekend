@@ -21,7 +21,7 @@ public class DealerTest {
 
     String[] playerNames = { "James", "Mark", "Derek", "Matthew" };
 
-    this.testDealer = new Dealer( playerNames );
+    this.testDealer = new Dealer( playerNames, new Deck() );
 
     Deck deck = new Deck();
     Deck spyDeck = spy( deck );

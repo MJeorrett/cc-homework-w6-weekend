@@ -5,16 +5,12 @@ public class Dealer {
   private Player[] players;
   private Deck deck;
 
-  public Dealer( String[] playerNames ) {
-
-    this( playerNames, Dealer.getDefaultDeck() );
-  }
-
   public Dealer( String[] playerNames, Deck deck ) {
 
     this.deck = deck;
 
-    this.numberOfPlayers = playerNames.length;
+    int numberOfPlayers = playerNames.length;
+
     this.players = new Player[numberOfPlayers];
 
     for ( int i = 0; i < numberOfPlayers; i++ ) {
@@ -24,7 +20,7 @@ public class Dealer {
   }
 
   public int numberOfPlayers() {
-    return this.numberOfPlayers;
+    return players.length;
   }
 
   public Player[] getPlayers() {
