@@ -16,14 +16,14 @@ public class CardGameTest {
 
   @Before
   public void before() {
+
     UserInterface userInterface = new UserInterface();
     this.spyUserInterface = Mockito.spy( userInterface );
 
     String[] playerNames = { "James", "Mark", "Derek", "Matthew" };
-    Mockito.when( this.spyUserInterface.getPlayerNames( anyInt(), anyInt() ) ).thenReturn( playerNames );
+    doReturn( playerNames ).when( spyUserInterface ).getPlayerNames( anyInt(), anyInt() );
 
     this.cardGame = new Blackjack( this.spyUserInterface );
-
     this.testPlayer = new Player( "John" );
   }
 
