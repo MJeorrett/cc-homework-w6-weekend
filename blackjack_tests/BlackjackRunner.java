@@ -1,12 +1,13 @@
 package blackjack.tests;
 
+import card_game_lib.*;
 import blackjack.*;
 
 public class BlackjackRunner {
 
   public static void main( String[] args ) {
-
-    Blackjack game = new Blackjack();
+    UserInterface userInterface = new UserInterface();
+    Blackjack game = new Blackjack( userInterface );
   }
 
 }

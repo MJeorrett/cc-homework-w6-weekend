@@ -2,9 +2,13 @@ package card_game_lib;
 
 import java.util.*;
 
-public class UserInterface {
+public class UserInterface implements Interfaceable {
 
-  public static String[] getNames( int min, int max ) {
+  public UserInterface() {
+    
+  }
+
+  public String[] getPlayerNames( int min, int max ) {
     Scanner inputScanner = new Scanner( System.in );
     System.out.print( String.format( "Enter the number of players:( %d -> %d ): ", min, max ) );
     int numberOfPlayers = inputScanner.nextInt();

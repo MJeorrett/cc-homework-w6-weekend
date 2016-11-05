@@ -5,6 +5,8 @@ import card_game_lib.*;
 
 public class Blackjack extends CardGame {
 
+  private Interfaceable userInterface;
+
   public static final int MAX_NUMBER_PLAYERS = 10;
 
   private static final Map<Rank, Integer> rankValues;
@@ -24,9 +26,11 @@ public class Blackjack extends CardGame {
     rankValues.put( Rank.KING, new Integer( 10 ) );
   }
 
-  public Blackjack() {
+  public Blackjack( Interfaceable userInterface ) {
 
-    String[] playerNames = UserInterface.getNames( 0, MAX_NUMBER_PLAYERS );
+    this.userInterface = userInterface;
+
+    String[] playerNames = userInterface.getPlayerNames( 1, MAX_NUMBER_PLAYERS );
     this.initializeGame( playerNames );
 
     System.out.println( "---" );
