@@ -38,6 +38,14 @@ public class Dealer {
     }
   }
 
+  public void dealRounds( int number ) {
+
+    for ( int i = 0; i < number; i++ ) {
+      
+      this.dealRound();
+    }
+  }
+
   public void dealCardToPlayer( Player player ) {
     player.addCard( this.deck.dealCard() );
   }

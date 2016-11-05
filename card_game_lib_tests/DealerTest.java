@@ -41,11 +41,25 @@ public class DealerTest {
 
   @Test
   public void canDealRound() {
+
     this.testDealer.dealRound();
+
     Player[] players = this.testDealer.getPlayers();
 
     for ( Player player : players ) {
       assertEquals( 1, player.cardsRemaining() );
+    }
+  }
+
+  @Test
+  public void canDealRounds() {
+
+    this.testDealer.dealRounds( 5 );
+
+    Player[] players = this.testDealer.getPlayers();
+
+    for ( Player player : players ) {
+      assertEquals( 5, player.cardsRemaining() );
     }
   }
 
