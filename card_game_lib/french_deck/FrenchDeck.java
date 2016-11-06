@@ -11,9 +11,7 @@ public class FrenchDeck extends Deck {
     ArrayList<Card> cards = new ArrayList<Card>();
 
     for ( FrenchSuit suit : FrenchSuit.values() ) {
-
       for ( FrenchRank rank : FrenchRank.values() ) {
-
         Card card = new Card( suit, rank );
         cards.add( card );
       }
