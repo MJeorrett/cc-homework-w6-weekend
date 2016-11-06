@@ -2,7 +2,7 @@ package blackjack;
 
 import card_game_lib.*;
 
-public class BlackjackPlayer extends Player implements Playerable {
+public class BlackjackPlayer extends Player implements Dealable {
 
   enum Action {
     STICK,

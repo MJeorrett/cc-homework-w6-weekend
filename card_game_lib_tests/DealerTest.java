@@ -70,13 +70,13 @@ public class DealerTest {
 
   @Test
   public void canDealCardToPlayer() {
-    this.testDealer.dealCardToPlayer( (Playerable)this.testPlayer );
+    this.testDealer.dealCardToPlayer( (Dealable)this.testPlayer );
     assertEquals( 1, this.testPlayer.cardsRemaining() );
   }
 
   @Test
   public void playerRecievesDealtCard() {
-    this.threeOfHeartsDealer.dealCardToPlayer( (Playerable)this.testPlayer );
+    this.threeOfHeartsDealer.dealCardToPlayer( (Dealable)this.testPlayer );
     assertEquals( true, this.testPlayer.hasCard( this.threeOfHearts ) );
   }
 

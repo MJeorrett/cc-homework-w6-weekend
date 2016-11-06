@@ -1,6 +1,6 @@
 package card_game_lib;
 
-public interface Playerable {
+public interface Dealable {
 
   void addCard( Card card );
 }
