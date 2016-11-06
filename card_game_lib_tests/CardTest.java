@@ -34,4 +34,16 @@ public class CardTest {
     assertEquals( true, this.tenOfHearts.equals( tenOfHearts_2 ) );
   }
 
+  @Test
+  public void differentRankSameSuitEqualsFalse() {
+    Card tenOfHearts_2 = new Card( FrenchSuit.HEARTS, FrenchRank.EIGHT );
+    assertEquals( false, this.tenOfHearts.equals( tenOfHearts_2 ) );
+  }
+
+  @Test
+  public void sameRankDifferentSuitEqualsFalse() {
+    Card tenOfHearts_2 = new Card( FrenchSuit.DIAMONDS, FrenchRank.TEN );
+    assertEquals( false, this.tenOfHearts.equals( tenOfHearts_2 ) );
+  }
+
 }
