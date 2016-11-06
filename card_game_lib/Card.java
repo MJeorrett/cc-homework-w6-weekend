@@ -21,7 +21,6 @@ public class Card implements Displayable {
     return this.rank;
   }
 
-  @Override
   public String toDisStr() {
     return this.rank.toDisStr() + " of " + this.suit.toDisStr();
   }
