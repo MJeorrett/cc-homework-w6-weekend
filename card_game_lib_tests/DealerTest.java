@@ -22,7 +22,7 @@ public class DealerTest {
   private Card threeOfHearts;
 
   @Before
-  public void before() {
+  public void before() throws DeckEmptyException {
 
     this.testPlayers = new ArrayList<BlackjackPlayer>();
     testPlayers.add( new BlackjackPlayer( "James" ) );
@@ -49,7 +49,7 @@ public class DealerTest {
   }
 
   @Test
-  public void canDealRound() {
+  public void canDealRound() throws DeckEmptyException {
 
     this.testDealer.dealRound();
 
@@ -59,7 +59,7 @@ public class DealerTest {
   }
 
   @Test
-  public void canDealRounds() {
+  public void canDealRounds() throws DeckEmptyException {
 
     this.testDealer.dealRounds( 5 );
 
@@ -69,13 +69,13 @@ public class DealerTest {
   }
 
   @Test
-  public void canDealCardToPlayer() {
+  public void canDealCardToPlayer() throws DeckEmptyException {
     this.testDealer.dealCardToPlayer( (Dealable)this.testPlayer );
     assertEquals( 1, this.testPlayer.cardsRemaining() );
   }
 
   @Test
-  public void playerRecievesDealtCard() {
+  public void playerRecievesDealtCard() throws DeckEmptyException {
     this.threeOfHeartsDealer.dealCardToPlayer( (Dealable)this.testPlayer );
     assertEquals( true, this.testPlayer.hasCard( this.threeOfHearts ) );
   }

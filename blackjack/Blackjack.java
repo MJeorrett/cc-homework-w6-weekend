@@ -59,6 +59,54 @@ public class Blackjack {
 
   }
 
+  // public ArrayList<Player> playRound() {
+  //   this.dealer.dealCards( 2 );
+  //
+  //   for ( BlackjackPlayer player : this.players ) {
+  //
+  //     boolean playerIsBust = false;
+  //     boolean playerIsSticking = player.isSticking();
+  //
+  //     while ( !playerIsBust && !playerIsSticking ) {
+  //
+  //       this.dealer.dealCardToPlayer( player );
+  //
+  //       playerIsBust = this.isBust( player.getHand() );
+  //       playerIsSticking = player.isSticking();
+  //     }
+  //   }
+  //
+  //   return this.winningPlayers();
+  // }
+  //
+  // public ArrayList<Player> winningPlayers() {
+  //   ArrayList<Player> winningPlayers = new ArryList<Player>();
+  //   Player firstPlayer = this.players.get( 0 );
+  //   winningPlayers.add( firstPlayer );
+  //   int winningScore = Blackjack.scoreHand( firstPlayer.getHand() );
+  //
+  //   Player aPlayer;
+  //   int aScore;
+  //
+  //   for (int i = 1; i < this.players.size(); i++ ) {
+  //
+  //     aPlayer = this.players.get( i );
+  //     aScore = Blackjack.scoreHand( aPlayer.getHand() );
+  //
+  //     if ( aScore == winningScore ) {
+  //       winningPlayers.add( aPlayer );
+  //     }
+  //
+  //     if ( aScore > winningScore ) {
+  //       winningPlayers.clear();
+  //       winningScore = aScore;
+  //       winningPlayers.add( aPlayer );
+  //     }
+  //   }
+  //
+  //   return winningPlayers;
+  // }
+
   public static int scoreHand( Hand hand ) {
 
     int score = 0;

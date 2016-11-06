@@ -14,6 +14,11 @@ public class FrenchDeckTest {
   }
 
   @Test
+  public void newDeckHas52Cards() {
+    assertEquals( 52, this.testDeck.cardsRemaining() );
+  }
+
+  @Test
   public void newDeckHasAllCards() {
     for ( FrenchSuit suit : FrenchSuit.values() ) {
       for ( FrenchRank rank : FrenchRank.values() ) {
@@ -24,14 +29,18 @@ public class FrenchDeckTest {
   }
 
   @Test
-  public void dealCardRemovesCard() {
+  public void dealCardRemovesCard() throws DeckEmptyException {
+
     Card card = this.testDeck.dealCard();
     assertEquals( false, this.testDeck.hasCard( card ) );
   }
 
-  @Test
-  public void newDeckHas52Cards() {
-    assertEquals( 52, this.testDeck.cardsRemaining() );
+  @Test( expected = DeckEmptyException.class )
+  public void exceptionRaisedDealingWhenEmpty() throws DeckEmptyException {
+
+    for ( int i = 0; i < 53; i++ ) {
+      this.testDeck.dealCard();
+    }
   }
 
 }

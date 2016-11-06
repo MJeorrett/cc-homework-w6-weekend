@@ -19,17 +19,18 @@ public class Dealer {
     return players.size();
   }
 
-  public void dealCardToPlayer( Dealable player ) {
+  public void dealCardToPlayer( Dealable player ) throws DeckEmptyException {
+
     player.addCard( this.deck.dealCard() );
   }
 
-  public void dealRound() {
+  public void dealRound() throws DeckEmptyException {
     for ( Dealable player : this.players ) {
       this.dealCardToPlayer( player );
     }
   }
 
-  public void dealRounds( int number ) {
+  public void dealRounds( int number ) throws DeckEmptyException {
     for ( int i = 0; i < number; i++ ) {
       this.dealRound();
     }

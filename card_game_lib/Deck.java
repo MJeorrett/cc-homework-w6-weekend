@@ -11,7 +11,10 @@ public abstract class Deck extends Hand {
 
   public abstract ArrayList<Card> setupCards();
 
-  public Card dealCard() {
+  public Card dealCard() throws DeckEmptyException {
+    if ( super.cardsRemaining() == 0 ) {
+      throw new DeckEmptyException( "dealCard() failed as no cards remaining");
+    }
     return this.cards.remove( 0 );
   }
 
