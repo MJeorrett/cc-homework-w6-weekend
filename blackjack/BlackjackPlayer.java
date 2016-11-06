@@ -4,18 +4,13 @@ import card_game_lib.*;
 
 public class BlackjackPlayer extends Player implements Dealable {
 
-  enum Action {
-    STICK,
-    TWIST
-  }
-
   public BlackjackPlayer( String playerName ) {
     super( playerName );
   }
 
-  public Action getAction() {
+  public boolean isSticking() {
 
-    return Action.STICK;
+    return true;
   }
 
 }
