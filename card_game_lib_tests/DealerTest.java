@@ -21,9 +21,9 @@ public class DealerTest {
 
     String[] playerNames = { "James", "Mark", "Derek", "Matthew" };
 
-    this.testDealer = new Dealer( playerNames, new Deck() );
+    this.testDealer = new Dealer( playerNames, new FrenchDeck() );
 
-    Deck deck = new Deck();
+    Deck deck = new FrenchDeck();
     Deck spyDeck = spy( deck );
 
     this.threeOfHearts = new Card( Suit.HEARTS, Rank.THREE );

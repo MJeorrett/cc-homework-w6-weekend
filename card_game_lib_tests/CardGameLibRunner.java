@@ -6,7 +6,7 @@ public class CardGameLibRunner {
 
   public static void main( String[] args ) {
 
-    Deck deck = new Deck();
+    Deck deck = new FrenchDeck();
     deck.shuffle();
 
     for ( int i = 1; i <= 52; i++ ) {

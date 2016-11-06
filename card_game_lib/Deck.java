@@ -1,17 +1,15 @@
 package card_game_lib;
 
-import java.util.Collections;
+import java.util.*;
 
-public class Deck extends Hand {
+public abstract class Deck extends Hand {
 
   public Deck() {
-    for ( Suit suit : Suit.values() ) {
-      for ( Rank rank : Rank.values() ) {
-        Card card = new Card( suit, rank );
-        this.addCard( card );
-      }
-    }
+    super();
+    this.cards = this.setupCards();
   }
+
+  public abstract ArrayList<Card> setupCards();
 
   public Card dealCard() {
     return this.cards.remove( 0 );
@@ -20,4 +18,5 @@ public class Deck extends Hand {
   public void shuffle() {
     Collections.shuffle( this.cards );
   }
+
 }

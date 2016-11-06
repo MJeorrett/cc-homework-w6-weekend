@@ -47,7 +47,7 @@ public class Dealer {
 
   private static Deck getDefaultDeck() {
 
-    Deck deck = new Deck();
+    Deck deck = new FrenchDeck();
     deck.shuffle();
 
     return deck;

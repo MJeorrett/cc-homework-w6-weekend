@@ -37,7 +37,7 @@ public class Blackjack {
 
     String[] playerNames = ui.getPlayerNames( 1, MAX_NUMBER_PLAYERS );
 
-    this.dealer = new Dealer( playerNames, new Deck() );
+    this.dealer = new Dealer( playerNames, new FrenchDeck() );
 
     System.out.println( "---" );
     System.out.println( "Ready to start with players: " );

@@ -3,13 +3,13 @@ import org.junit.*;
 
 import card_game_lib.*;
 
-public class DeckTest {
+public class FrenchDeckTest {
 
   private Deck testDeck;
 
   @Before
   public void before() {
-    this.testDeck = new Deck();
+    this.testDeck = new FrenchDeck();
   }
 
   @Test
