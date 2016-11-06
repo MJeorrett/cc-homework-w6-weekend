@@ -2,48 +2,36 @@ package card_game_lib;
 
 import blackjack.*;
 
+import java.util.*;
+
 public class Dealer {
 
-  private Player[] players;
+  private ArrayList<? extends Playerable> players;
   private Deck deck;
 
-  public Dealer( String[] playerNames, Deck deck ) {
+  public Dealer( ArrayList<? extends Playerable> players, Deck deck ) {
 
     this.deck = deck;
-
-    int numberOfPlayers = playerNames.length;
-
-    this.players = new Player[numberOfPlayers];
-
-    for ( int i = 0; i < numberOfPlayers; i++ ) {
-      Player player = new BlackjackPlayer( playerNames[i] );
-      this.players[i] = player;
-    }
+    this.players = players;
   }
 
   public int numberOfPlayers() {
-    return players.length;
-  }
-
-  public Player[] getPlayers() {
-    return this.players;
+    return players.size();
   }
 
   public void dealRound() {
-    for ( Player player : this.players ) {
+    for ( Playerable player : this.players ) {
       player.addCard( this.deck.dealCard() );
     }
   }
 
   public void dealRounds( int number ) {
-
     for ( int i = 0; i < number; i++ ) {
-
       this.dealRound();
     }
   }
 
-  public void dealCardToPlayer( Player player ) {
+  public void dealCardToPlayer( Playerable player ) {
     player.addCard( this.deck.dealCard() );
   }
 

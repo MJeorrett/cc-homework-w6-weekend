@@ -1,18 +1,21 @@
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
-import org.junit.*;
-import org.mockito.*;
-
 import card_game_lib.*;
 import card_game_lib.french_deck.*;
 import card_game_lib.user_interface.*;
 import blackjack.*;
 
+import java.util.*;
+import org.junit.*;
+import org.mockito.*;
+
 public class DealerTest {
 
   private Dealer testDealer;
   private Dealer threeOfHeartsDealer;
+
+  private ArrayList<BlackjackPlayer> testPlayers;
 
   private Player testPlayer;
 
@@ -21,9 +24,13 @@ public class DealerTest {
   @Before
   public void before() {
 
-    String[] playerNames = { "James", "Mark", "Derek", "Matthew" };
+    this.testPlayers = new ArrayList<BlackjackPlayer>();
+    testPlayers.add( new BlackjackPlayer( "James" ) );
+    testPlayers.add( new BlackjackPlayer( "Mark" ) );
+    testPlayers.add( new BlackjackPlayer( "Derek" ) );
+    testPlayers.add( new BlackjackPlayer( "Matthew" ) );
 
-    this.testDealer = new Dealer( playerNames, new FrenchDeck() );
+    this.testDealer = new Dealer( this.testPlayers, new FrenchDeck() );
 
     Deck deck = new FrenchDeck();
     Deck spyDeck = spy( deck );
@@ -31,7 +38,7 @@ public class DealerTest {
     this.threeOfHearts = new Card( FrenchSuit.HEARTS, FrenchRank.THREE );
     Mockito.when( spyDeck.dealCard() ).thenReturn( this.threeOfHearts );
 
-    this.threeOfHeartsDealer = new Dealer( playerNames, spyDeck );
+    this.threeOfHeartsDealer = new Dealer( this.testPlayers, spyDeck );
 
     this.testPlayer = new BlackjackPlayer( "John" );
   }
@@ -46,9 +53,7 @@ public class DealerTest {
 
     this.testDealer.dealRound();
 
-    Player[] players = this.testDealer.getPlayers();
-
-    for ( Player player : players ) {
+    for ( Player player : this.testPlayers ) {
       assertEquals( 1, player.cardsRemaining() );
     }
   }
@@ -58,22 +63,20 @@ public class DealerTest {
 
     this.testDealer.dealRounds( 5 );
 
-    Player[] players = this.testDealer.getPlayers();
-
-    for ( Player player : players ) {
+    for ( Player player : this.testPlayers ) {
       assertEquals( 5, player.cardsRemaining() );
     }
   }
 
   @Test
   public void canDealCardToPlayer() {
-    this.testDealer.dealCardToPlayer( this.testPlayer );
+    this.testDealer.dealCardToPlayer( (Playerable)this.testPlayer );
     assertEquals( 1, this.testPlayer.cardsRemaining() );
   }
 
   @Test
   public void playerRecievesDealtCard() {
-    this.threeOfHeartsDealer.dealCardToPlayer( this.testPlayer );
+    this.threeOfHeartsDealer.dealCardToPlayer( (Playerable)this.testPlayer );
     assertEquals( true, this.testPlayer.hasCard( this.threeOfHearts ) );
   }
 

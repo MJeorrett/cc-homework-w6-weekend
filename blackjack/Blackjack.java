@@ -10,6 +10,7 @@ public class Blackjack {
 
   private UIable ui;
   private Dealer dealer;
+  private ArrayList<BlackjackPlayer> players;
 
   public static final int MAX_NUMBER_PLAYERS = 10;
   public static final int TARGET_SCORE = 21;
@@ -38,8 +39,16 @@ public class Blackjack {
     this.ui = ui;
 
     String[] playerNames = ui.getPlayerNames( 1, MAX_NUMBER_PLAYERS );
+    this.players = new ArrayList<BlackjackPlayer>();
 
-    this.dealer = new Dealer( playerNames, new FrenchDeck() );
+    BlackjackPlayer player;
+
+    for ( String playerName : playerNames ) {
+      player = new BlackjackPlayer( playerName );
+      this.players.add( player );
+    }
+
+    this.dealer = new Dealer( this.players, new FrenchDeck() );
 
     System.out.println( "---" );
     System.out.println( "Ready to start with players: " );
