@@ -58,7 +58,7 @@ public class Blackjack {
 
     for ( Card card : hand.getCards() ) {
 
-      rank = card.getRank();
+      rank = (FrenchRank)card.getRank();
 
       if ( rank == FrenchRank.ACE ) {
         numberOfAces++;

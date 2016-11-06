@@ -1,6 +1,8 @@
 package card_game_lib.french_deck;
 
-public enum FrenchRank {
+import card_game_lib.*;
+
+public enum FrenchRank implements CardSuitValueable<FrenchRank> {
   TWO("2"),
   THREE("3"),
   FOUR("4"),

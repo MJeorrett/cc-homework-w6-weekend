@@ -5,19 +5,19 @@ import card_game_lib.user_interface.*;
 
 public class Card implements Displayable {
 
-  private FrenchSuit suit;
-  private FrenchRank rank;
+  private CardSuitValueable suit;
+  private CardSuitValueable rank;
 
-  public Card( FrenchSuit suit, FrenchRank rank ) {
+  public Card( CardSuitValueable suit, CardSuitValueable rank ) {
     this.suit = suit;
     this.rank = rank;
   }
 
-  public FrenchSuit getSuit() {
+  public CardSuitValueable getSuit() {
     return this.suit;
   }
 
-  public FrenchRank getRank() {
+  public CardSuitValueable getRank() {
     return this.rank;
   }
 

@@ -1,6 +1,8 @@
 package card_game_lib.french_deck;
 
-public enum FrenchSuit {
+import card_game_lib.*;
+
+public enum FrenchSuit implements CardSuitValueable<FrenchSuit> {
   HEARTS("Hearts"),
   CLUBS("Clubs"),
   DIAMONDS("Diamonds"),
