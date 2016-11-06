@@ -1,5 +1,7 @@
 package card_game_lib;
 
-public interface CardSuitValueable<E extends Enum<E>> {
-  String toDisStr();
+import card_game_lib.user_interface.*;
+
+public interface CardSuitValueable<E extends Enum<E>> extends Displayable {
+  
 }
