@@ -7,8 +7,7 @@ import blackjack.*;
 public class BlackjackRunner {
 
   public static void main( String[] args ) {
-    UserInterface userInterface = new UserInterface();
-    Blackjack game = new Blackjack( userInterface );
+    GameManager gameManager = new GameManager();
   }
 
 }

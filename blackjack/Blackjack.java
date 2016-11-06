@@ -8,11 +8,10 @@ import java.util.*;
 
 public class Blackjack {
 
-  private UIable ui;
+  private GameManager gameManager;
   private Dealer dealer;
   private ArrayList<BlackjackPlayer> players;
 
-  public static final int MAX_NUMBER_PLAYERS = 10;
   public static final int TARGET_SCORE = 21;
   public static final int ACE_HIGH_VALUE = 11;
   public static final int ACE_LOW_VALUE = 1;
@@ -34,28 +33,12 @@ public class Blackjack {
     rankValues.put( FrenchRank.KING, new Integer( 10 ) );
   }
 
-  public Blackjack( UIable ui ) {
+  public Blackjack( GameManager gameManager, ArrayList<BlackjackPlayer> players ) {
 
-    this.ui = ui;
-
-    String[] playerNames = ui.getPlayerNames( 1, MAX_NUMBER_PLAYERS );
-    this.players = new ArrayList<BlackjackPlayer>();
-
-    BlackjackPlayer player;
-
-    for ( String playerName : playerNames ) {
-      player = new BlackjackPlayer( playerName );
-      this.players.add( player );
-    }
+    this.gameManager = gameManager;
+    this.players = players;
 
     this.dealer = new Dealer( this.players, new FrenchDeck() );
-
-    System.out.println( "---" );
-    System.out.println( "Ready to start with players: " );
-
-    for ( String name : playerNames ) {
-      System.out.println( "  " + name );
-    }
 
   }
 
