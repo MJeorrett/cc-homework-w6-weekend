@@ -2,16 +2,27 @@ import blackjack.*;
 import card_game_lib.*;
 import card_game_lib.french_deck.*;
 
+import java.util.*;
+
 import static org.junit.Assert.assertEquals;
 import org.junit.*;
 
 public class BlackjackTest {
+
+  private ArrayList<BlackjackPlayer> playersWinnerFirst;
+  private ArrayList<BlackjackPlayer> playersWinnerLast;
+  private ArrayList<BlackjackPlayer> playersTwoWayDraw;
+
+  private BlackjackPlayer winningPlayer;
+  private BlackjackPlayer losingPlayer1;
+  private BlackjackPlayer losingPlayer2;
 
   private Hand testHand;
   private Hand blackjackHand;
 
   private Card twoOfHearts;
   private Card fiveOfClubs;
+  private Card sevenOfSpades;
   private Card jackOfDiamonds;
   private Card kingOfSpades;
   private Card aceOfHearts;
@@ -26,6 +37,7 @@ public class BlackjackTest {
 
     this.twoOfHearts = new Card( FrenchSuit.HEARTS, FrenchRank.TWO );
     this.fiveOfClubs = new Card( FrenchSuit.CLUBS, FrenchRank.FIVE );
+    this.sevenOfSpades = new Card( FrenchSuit.SPADES, FrenchRank.SEVEN );
     this.jackOfDiamonds = new Card( FrenchSuit.DIAMONDS, FrenchRank.JACK );
     this.kingOfSpades = new Card( FrenchSuit.SPADES, FrenchRank.KING );
     this.aceOfHearts = new Card( FrenchSuit.HEARTS, FrenchRank.ACE );
@@ -35,6 +47,35 @@ public class BlackjackTest {
 
     this.blackjackHand.addCard( this.kingOfSpades );
     this.blackjackHand.addCard( this.aceOfClubs );
+
+    this.winningPlayer = new BlackjackPlayer( "Winner" );
+    winningPlayer.addCard( this.kingOfSpades );
+    winningPlayer.addCard( this.aceOfClubs );
+
+    this.losingPlayer1 = new BlackjackPlayer( "Loser 1" );
+    losingPlayer1.addCard( this.twoOfHearts );
+    losingPlayer1.addCard( this.jackOfDiamonds );
+
+    this.losingPlayer2 = new BlackjackPlayer( "Loser 2" );
+    losingPlayer2.addCard( this.sevenOfSpades );
+    losingPlayer2.addCard( this.jackOfDiamonds );
+
+    this.playersWinnerFirst = new ArrayList<BlackjackPlayer>();
+    this.playersWinnerFirst.add( winningPlayer );
+    this.playersWinnerFirst.add( losingPlayer1 );
+    this.playersWinnerFirst.add( losingPlayer2 );
+
+    this.playersWinnerLast = new ArrayList<BlackjackPlayer>();
+    this.playersWinnerLast.add( losingPlayer1 );
+    this.playersWinnerLast.add( losingPlayer2 );
+    this.playersWinnerLast.add( winningPlayer );
+
+    this.playersTwoWayDraw = new ArrayList<BlackjackPlayer>();
+    this.playersTwoWayDraw.add( losingPlayer1 );
+    this.playersTwoWayDraw.add( winningPlayer );
+    this.playersTwoWayDraw.add( losingPlayer2 );
+    this.playersTwoWayDraw.add( losingPlayer2 );
+    this.playersTwoWayDraw.add( winningPlayer );
   }
 
   @Test
@@ -106,6 +147,40 @@ public class BlackjackTest {
     this.testHand.addCard( this.kingOfSpades );
 
     assertEquals( false, Blackjack.isBust( this.blackjackHand ) );
+  }
+
+  @Test
+  public void winningPlayersPlayerFirst() {
+    ArrayList<BlackjackPlayer> expected = new ArrayList<BlackjackPlayer>();
+    expected.add( this.winningPlayer );
+
+    ArrayList<BlackjackPlayer> actual = Blackjack.winningPlayers( this.playersWinnerFirst );
+
+    assertEquals( 1, actual.size() );
+    assertEquals( expected, actual );
+  }
+
+  @Test
+  public void winningPlayersPlayerLast() {
+    ArrayList<BlackjackPlayer> expected = new ArrayList<BlackjackPlayer>();
+    expected.add( this.winningPlayer );
+
+    ArrayList<BlackjackPlayer> actual = Blackjack.winningPlayers( this.playersWinnerLast );
+
+    assertEquals( 1, actual.size() );
+    assertEquals( expected, actual );
+  }
+
+  @Test
+  public void winningPlayersTwoWayDraw() {
+    ArrayList<BlackjackPlayer> expected = new ArrayList<BlackjackPlayer>();
+    expected.add( this.winningPlayer );
+    expected.add( this.winningPlayer );
+
+    ArrayList<BlackjackPlayer> actual = Blackjack.winningPlayers( this.playersTwoWayDraw );
+
+    assertEquals( 2, actual.size() );
+    assertEquals( expected, actual );
   }
 
 }

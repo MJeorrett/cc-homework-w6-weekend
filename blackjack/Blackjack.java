@@ -76,36 +76,38 @@ public class Blackjack {
   //     }
   //   }
   //
-  //   return this.winningPlayers();
+  //   return Blackjack.winningPlayers( this.players );
   // }
-  //
-  // public ArrayList<Player> winningPlayers() {
-  //   ArrayList<Player> winningPlayers = new ArryList<Player>();
-  //   Player firstPlayer = this.players.get( 0 );
-  //   winningPlayers.add( firstPlayer );
-  //   int winningScore = Blackjack.scoreHand( firstPlayer.getHand() );
-  //
-  //   Player aPlayer;
-  //   int aScore;
-  //
-  //   for (int i = 1; i < this.players.size(); i++ ) {
-  //
-  //     aPlayer = this.players.get( i );
-  //     aScore = Blackjack.scoreHand( aPlayer.getHand() );
-  //
-  //     if ( aScore == winningScore ) {
-  //       winningPlayers.add( aPlayer );
-  //     }
-  //
-  //     if ( aScore > winningScore ) {
-  //       winningPlayers.clear();
-  //       winningScore = aScore;
-  //       winningPlayers.add( aPlayer );
-  //     }
-  //   }
-  //
-  //   return winningPlayers;
-  // }
+
+  public static ArrayList<BlackjackPlayer> winningPlayers( ArrayList<BlackjackPlayer> players ) {
+
+    ArrayList<BlackjackPlayer> winningPlayers = new ArrayList<BlackjackPlayer>();
+
+    int winningScore = 0;
+    BlackjackPlayer aPlayer;
+    int aScore;
+
+    for (int i = 0; i < players.size(); i++ ) {
+
+      aPlayer = players.get( i );
+      aScore = Blackjack.scoreHand( aPlayer.getHand() );
+
+      if ( !Blackjack.isBust( aPlayer.getHand() ) ) {
+
+        if ( aScore == winningScore ) {
+          winningPlayers.add( aPlayer );
+        }
+
+        if ( aScore > winningScore ) {
+          winningPlayers.clear();
+          winningScore = aScore;
+          winningPlayers.add( aPlayer );
+        }
+      }
+    }
+
+    return winningPlayers;
+  }
 
   public static int scoreHand( Hand hand ) {
 
