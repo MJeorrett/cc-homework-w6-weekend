@@ -3,6 +3,7 @@ import static org.junit.Assert.assertArrayEquals;
 import org.junit.*;
 
 import card_game_lib.*;
+import card_game_lib.french_deck.*;
 
 public class HandTest {
 
@@ -15,10 +16,10 @@ public class HandTest {
   @Before
   public void before() {
     this.testHand = new Hand();
-    this.fiveOfClubs = new Card( Suit.CLUBS, Rank.FIVE );
-    this.kingOfSpades = new Card( Suit.SPADES, Rank.KING );
-    this.aceOfDiamonds = new Card( Suit.DIAMONDS, Rank.ACE );
-    this.aceOfSpades = new Card( Suit.SPADES, Rank.ACE );
+    this.fiveOfClubs = new Card( FrenchSuit.CLUBS, FrenchRank.FIVE );
+    this.kingOfSpades = new Card( FrenchSuit.SPADES, FrenchRank.KING );
+    this.aceOfDiamonds = new Card( FrenchSuit.DIAMONDS, FrenchRank.ACE );
+    this.aceOfSpades = new Card( FrenchSuit.SPADES, FrenchRank.ACE );
   }
 
   @Test

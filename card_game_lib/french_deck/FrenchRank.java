@@ -1,6 +1,6 @@
-package card_game_lib;
+package card_game_lib.french_deck;
 
-public enum Rank {
+public enum FrenchRank {
   TWO("2"),
   THREE("3"),
   FOUR("4"),
@@ -17,7 +17,7 @@ public enum Rank {
 
   private String title;
 
-  Rank( String title ) {
+  FrenchRank( String title ) {
     this.title = title;
   }
 

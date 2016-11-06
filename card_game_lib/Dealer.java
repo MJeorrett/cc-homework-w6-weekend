@@ -45,12 +45,4 @@ public class Dealer {
     player.addCard( this.deck.dealCard() );
   }
 
-  private static Deck getDefaultDeck() {
-
-    Deck deck = new FrenchDeck();
-    deck.shuffle();
-
-    return deck;
-  }
-
 }

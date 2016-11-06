@@ -2,6 +2,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.*;
 
 import card_game_lib.*;
+import card_game_lib.french_deck.*;
 
 public class FrenchDeckTest {
 
@@ -14,8 +15,8 @@ public class FrenchDeckTest {
 
   @Test
   public void newDeckHasAllCards() {
-    for ( Suit suit : Suit.values() ) {
-      for ( Rank rank : Rank.values() ) {
+    for ( FrenchSuit suit : FrenchSuit.values() ) {
+      for ( FrenchRank rank : FrenchRank.values() ) {
         Card card = new Card( suit, rank );
         assertEquals( true, this.testDeck.hasCard( card ) );
       }

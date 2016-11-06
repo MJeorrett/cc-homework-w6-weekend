@@ -1,22 +1,23 @@
 package card_game_lib;
 
+import card_game_lib.french_deck.*;
 import card_game_lib.user_interface.*;
 
 public class Card implements Displayable {
 
-  private Suit suit;
-  private Rank rank;
+  private FrenchSuit suit;
+  private FrenchRank rank;
 
-  public Card( Suit suit, Rank rank ) {
+  public Card( FrenchSuit suit, FrenchRank rank ) {
     this.suit = suit;
     this.rank = rank;
   }
 
-  public Suit getSuit() {
+  public FrenchSuit getSuit() {
     return this.suit;
   }
 
-  public Rank getRank() {
+  public FrenchRank getRank() {
     return this.rank;
   }
 

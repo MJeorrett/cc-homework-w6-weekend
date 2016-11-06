@@ -2,6 +2,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.*;
 
 import card_game_lib.*;
+import card_game_lib.french_deck.*;
 
 public class PlayerTest {
 
@@ -20,14 +21,14 @@ public class PlayerTest {
   public void before() {
     this.testPlayer = new Player( "Martin" );
 
-    this.twoOfHearts = new Card( Suit.HEARTS, Rank.TWO );
-    this.fiveOfClubs = new Card( Suit.CLUBS, Rank.FIVE );
-    this.jackOfDiamonds = new Card( Suit.DIAMONDS, Rank.JACK );
-    this.kingOfSpades = new Card( Suit.SPADES, Rank.KING );
-    this.aceOfHearts = new Card( Suit.HEARTS, Rank.ACE );
-    this.aceOfClubs = new Card( Suit.CLUBS, Rank.ACE );
-    this.aceOfDiamonds = new Card( Suit.DIAMONDS, Rank.ACE );
-    this.aceOfSpades = new Card( Suit.SPADES, Rank.ACE );
+    this.twoOfHearts = new Card( FrenchSuit.HEARTS, FrenchRank.TWO );
+    this.fiveOfClubs = new Card( FrenchSuit.CLUBS, FrenchRank.FIVE );
+    this.jackOfDiamonds = new Card( FrenchSuit.DIAMONDS, FrenchRank.JACK );
+    this.kingOfSpades = new Card( FrenchSuit.SPADES, FrenchRank.KING );
+    this.aceOfHearts = new Card( FrenchSuit.HEARTS, FrenchRank.ACE );
+    this.aceOfClubs = new Card( FrenchSuit.CLUBS, FrenchRank.ACE );
+    this.aceOfDiamonds = new Card( FrenchSuit.DIAMONDS, FrenchRank.ACE );
+    this.aceOfSpades = new Card( FrenchSuit.SPADES, FrenchRank.ACE );
   }
 
   @Test

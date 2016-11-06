@@ -1,6 +1,6 @@
-package card_game_lib;
+package card_game_lib.french_deck;
 
-public enum Suit {
+public enum FrenchSuit {
   HEARTS("Hearts"),
   CLUBS("Clubs"),
   DIAMONDS("Diamonds"),
@@ -8,7 +8,7 @@ public enum Suit {
 
   private String title;
 
-  Suit( String title ) {
+  FrenchSuit( String title ) {
     this.title = title;
   }
 

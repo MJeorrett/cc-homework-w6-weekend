@@ -5,6 +5,7 @@ import org.junit.*;
 import org.mockito.*;
 
 import card_game_lib.*;
+import card_game_lib.french_deck.*;
 import card_game_lib.user_interface.*;
 
 public class DealerTest {
@@ -26,7 +27,7 @@ public class DealerTest {
     Deck deck = new FrenchDeck();
     Deck spyDeck = spy( deck );
 
-    this.threeOfHearts = new Card( Suit.HEARTS, Rank.THREE );
+    this.threeOfHearts = new Card( FrenchSuit.HEARTS, FrenchRank.THREE );
     Mockito.when( spyDeck.dealCard() ).thenReturn( this.threeOfHearts );
 
     this.threeOfHeartsDealer = new Dealer( playerNames, spyDeck );

@@ -1,6 +1,7 @@
 package card_game_lib.tests;
 
 import card_game_lib.*;
+import card_game_lib.french_deck.*;
 
 public class CardGameLibRunner {
 

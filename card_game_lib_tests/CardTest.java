@@ -2,6 +2,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.*;
 
 import card_game_lib.*;
+import card_game_lib.french_deck.*;
 
 public class CardTest {
 
@@ -9,17 +10,17 @@ public class CardTest {
 
   @Before
   public void before() {
-    this.tenOfHearts = new Card( Suit.HEARTS, Rank.TEN );
+    this.tenOfHearts = new Card( FrenchSuit.HEARTS, FrenchRank.TEN );
   }
 
   @Test
   public void canGetSuit() {
-    assertEquals( Suit.HEARTS, this.tenOfHearts.getSuit() );
+    assertEquals( FrenchSuit.HEARTS, this.tenOfHearts.getSuit() );
   }
 
   @Test
   public void canGetRank() {
-    assertEquals( Rank.TEN, this.tenOfHearts.getRank() );
+    assertEquals( FrenchRank.TEN, this.tenOfHearts.getRank() );
   }
 
   @Test
@@ -29,7 +30,7 @@ public class CardTest {
 
   @Test
   public void sameRankAndSuitEqualsTrue() {
-    Card tenOfHearts_2 = new Card( Suit.HEARTS, Rank.TEN );
+    Card tenOfHearts_2 = new Card( FrenchSuit.HEARTS, FrenchRank.TEN );
     assertEquals( true, this.tenOfHearts.equals( tenOfHearts_2 ) );
   }
 

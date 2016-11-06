@@ -1,8 +1,10 @@
 package blackjack;
 
-import java.util.*;
 import card_game_lib.*;
+import card_game_lib.french_deck.*;
 import card_game_lib.user_interface.*;
+
+import java.util.*;
 
 public class Blackjack {
 
@@ -14,21 +16,21 @@ public class Blackjack {
   public static final int ACE_HIGH_VALUE = 11;
   public static final int ACE_LOW_VALUE = 1;
 
-  private static final Map<Rank, Integer> rankValues;
+  private static final Map<FrenchRank, Integer> rankValues;
   static {
-    rankValues = new EnumMap<Rank, Integer>( Rank.class );
-    rankValues.put( Rank.TWO, new Integer( 2 ) );
-    rankValues.put( Rank.THREE, new Integer( 3 ) );
-    rankValues.put( Rank.FOUR, new Integer( 4 ) );
-    rankValues.put( Rank.FIVE, new Integer( 5 ) );
-    rankValues.put( Rank.SIX, new Integer( 6 ) );
-    rankValues.put( Rank.SEVEN, new Integer( 7 ) );
-    rankValues.put( Rank.EIGHT, new Integer( 8 ) );
-    rankValues.put( Rank.NINE, new Integer( 9 ) );
-    rankValues.put( Rank.TEN, new Integer( 10 ) );
-    rankValues.put( Rank.JACK, new Integer( 10 ) );
-    rankValues.put( Rank.QUEEN, new Integer( 10 ) );
-    rankValues.put( Rank.KING, new Integer( 10 ) );
+    rankValues = new EnumMap<FrenchRank, Integer>( FrenchRank.class );
+    rankValues.put( FrenchRank.TWO, new Integer( 2 ) );
+    rankValues.put( FrenchRank.THREE, new Integer( 3 ) );
+    rankValues.put( FrenchRank.FOUR, new Integer( 4 ) );
+    rankValues.put( FrenchRank.FIVE, new Integer( 5 ) );
+    rankValues.put( FrenchRank.SIX, new Integer( 6 ) );
+    rankValues.put( FrenchRank.SEVEN, new Integer( 7 ) );
+    rankValues.put( FrenchRank.EIGHT, new Integer( 8 ) );
+    rankValues.put( FrenchRank.NINE, new Integer( 9 ) );
+    rankValues.put( FrenchRank.TEN, new Integer( 10 ) );
+    rankValues.put( FrenchRank.JACK, new Integer( 10 ) );
+    rankValues.put( FrenchRank.QUEEN, new Integer( 10 ) );
+    rankValues.put( FrenchRank.KING, new Integer( 10 ) );
   }
 
   public Blackjack( Interfaceable ui ) {
@@ -52,13 +54,13 @@ public class Blackjack {
 
     int score = 0;
     int numberOfAces = 0;
-    Rank rank;
+    FrenchRank rank;
 
     for ( Card card : hand.getCards() ) {
 
       rank = card.getRank();
 
-      if ( rank == Rank.ACE ) {
+      if ( rank == FrenchRank.ACE ) {
         numberOfAces++;
       } else {
         score += rankValues.get( rank );

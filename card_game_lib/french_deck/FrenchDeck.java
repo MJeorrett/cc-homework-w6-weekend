@@ -1,4 +1,6 @@
-package card_game_lib;
+package card_game_lib.french_deck;
+
+import card_game_lib.*;
 
 import java.util.ArrayList;
 
@@ -8,9 +10,9 @@ public class FrenchDeck extends Deck {
 
     ArrayList<Card> cards = new ArrayList<Card>();
 
-    for ( Suit suit : Suit.values() ) {
+    for ( FrenchSuit suit : FrenchSuit.values() ) {
 
-      for ( Rank rank : Rank.values() ) {
+      for ( FrenchRank rank : FrenchRank.values() ) {
 
         Card card = new Card( suit, rank );
         cards.add( card );
