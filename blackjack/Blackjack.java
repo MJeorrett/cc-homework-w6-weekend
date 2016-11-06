@@ -8,7 +8,7 @@ import java.util.*;
 
 public class Blackjack {
 
-  private Interfaceable ui;
+  private UIable ui;
   private Dealer dealer;
 
   public static final int MAX_NUMBER_PLAYERS = 10;
@@ -33,7 +33,7 @@ public class Blackjack {
     rankValues.put( FrenchRank.KING, new Integer( 10 ) );
   }
 
-  public Blackjack( Interfaceable ui ) {
+  public Blackjack( UIable ui ) {
 
     this.ui = ui;
 

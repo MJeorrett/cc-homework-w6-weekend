@@ -1,5 +1,5 @@
 package card_game_lib.user_interface;
 
-public interface Interfaceable {
+public interface UIable {
   String[] getPlayerNames( int minNumberPlayers, int maxNumberPlayers );
 }
