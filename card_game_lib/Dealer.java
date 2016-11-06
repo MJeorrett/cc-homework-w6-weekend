@@ -21,7 +21,7 @@ public class Dealer {
 
   public void dealRound() {
     for ( Playerable player : this.players ) {
-      player.addCard( this.deck.dealCard() );
+      this.dealCardToPlayer( player );
     }
   }
 
