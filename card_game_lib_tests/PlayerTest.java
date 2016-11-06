@@ -3,6 +3,7 @@ import org.junit.*;
 
 import card_game_lib.*;
 import card_game_lib.french_deck.*;
+import blackjack.*;
 
 public class PlayerTest {
 
@@ -19,7 +20,7 @@ public class PlayerTest {
 
   @Before
   public void before() {
-    this.testPlayer = new Player( "Martin" );
+    this.testPlayer = new BlackjackPlayer( "Martin" );
 
     this.twoOfHearts = new Card( FrenchSuit.HEARTS, FrenchRank.TWO );
     this.fiveOfClubs = new Card( FrenchSuit.CLUBS, FrenchRank.FIVE );

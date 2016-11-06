@@ -1,5 +1,7 @@
 package card_game_lib;
 
+import blackjack.*;
+
 public class Dealer {
 
   private Player[] players;
@@ -14,7 +16,7 @@ public class Dealer {
     this.players = new Player[numberOfPlayers];
 
     for ( int i = 0; i < numberOfPlayers; i++ ) {
-      Player player = new Player( playerNames[i] );
+      Player player = new BlackjackPlayer( playerNames[i] );
       this.players[i] = player;
     }
   }

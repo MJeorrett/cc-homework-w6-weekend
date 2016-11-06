@@ -7,6 +7,7 @@ import org.mockito.*;
 import card_game_lib.*;
 import card_game_lib.french_deck.*;
 import card_game_lib.user_interface.*;
+import blackjack.*;
 
 public class DealerTest {
 
@@ -32,7 +33,7 @@ public class DealerTest {
 
     this.threeOfHeartsDealer = new Dealer( playerNames, spyDeck );
 
-    this.testPlayer = new Player( "John" );
+    this.testPlayer = new BlackjackPlayer( "John" );
   }
 
   @Test

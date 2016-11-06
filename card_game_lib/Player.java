@@ -1,6 +1,6 @@
 package card_game_lib;
 
-public class Player extends Hand {
+public abstract class Player extends Hand {
 
   private String name;
 
