@@ -19,6 +19,10 @@ public class Dealer {
     return players.size();
   }
 
+  public void dealCardToPlayer( Playerable player ) {
+    player.addCard( this.deck.dealCard() );
+  }
+
   public void dealRound() {
     for ( Playerable player : this.players ) {
       this.dealCardToPlayer( player );
@@ -29,10 +33,6 @@ public class Dealer {
     for ( int i = 0; i < number; i++ ) {
       this.dealRound();
     }
-  }
-
-  public void dealCardToPlayer( Playerable player ) {
-    player.addCard( this.deck.dealCard() );
   }
 
 }
