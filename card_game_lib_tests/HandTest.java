@@ -23,7 +23,7 @@ public class HandTest {
   }
 
   @Test
-  public void addCardAddsCard() {
+  public void hasCardAfterAdding() {
     this.testHand.addCard( this.fiveOfClubs );
     assertEquals( true, this.testHand.hasCard( this.fiveOfClubs ) );
   }
@@ -44,7 +44,7 @@ public class HandTest {
   }
 
   @Test
-  public void removeCard() {
+  public void doesntHasCardAfterRemoving() {
 
     this.testHand.addCard( this.fiveOfClubs );
     this.testHand.removeCard( this.fiveOfClubs );
