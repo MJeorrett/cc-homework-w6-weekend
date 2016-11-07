@@ -2,7 +2,7 @@ package card_game_lib.user_interface;
 
 import java.util.*;
 
-public class UserInterface implements UIable {
+public class UserInterface {
 
   public UserInterface() {
 
@@ -19,18 +19,15 @@ public class UserInterface implements UIable {
       numberOfPlayers = inputScanner.nextInt();
     }
 
-    ArrayList<String> playerNames = new ArrayList<String>();
+    String[] playerNames = new String[numberOfPlayers];
 
     for ( int i = 1; i <= numberOfPlayers; i++ ) {
       System.out.print( String.format( "Enter the name for player %d: ", i ) );
       String name = inputScanner.next();
-      playerNames.add( name );
+      playerNames[ i - 1 ] = name;
     }
 
-    String[] result = new String[playerNames.size()];
-    playerNames.toArray( result );
-
-    return result;
+    return playerNames;
   }
 
 }
