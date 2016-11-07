@@ -4,11 +4,8 @@ import java.util.*;
 
 public class UserInterface {
 
-  public UserInterface() {
-
-  }
-
   public String[] getPlayerNames( int min, int max ) {
+
     Scanner inputScanner = new Scanner( System.in );
     System.out.print( String.format( "Enter the number of players:( %d -> %d ): ", min, max ) );
     int numberOfPlayers = inputScanner.nextInt();
