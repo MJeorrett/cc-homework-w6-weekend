@@ -4,6 +4,7 @@ import card_game_lib.user_interface.*;
 
 import java.util.*;
 
+// responsible for setting up players and then creating a new game (intance of the Blackjack class)
 public class GameManager {
 
   public static final int MAX_NUMBER_PLAYERS = 10;
@@ -25,14 +26,15 @@ public class GameManager {
       players.add( player );
     }
 
-    this.game = new Blackjack( this.ui, players );
-
     System.out.println( "---" );
     System.out.println( "Ready to start with players: " );
 
     for ( String name : playerNames ) {
       System.out.println( "  " + name );
     }
+
+    // Hand off to Blackjack
+    this.game = new Blackjack( this.ui, players );
 
   }
 
