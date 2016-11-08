@@ -7,7 +7,7 @@ import java.util.*;
 import static org.junit.Assert.assertEquals;
 import org.junit.*;
 
-public class BlackjackTest {
+public class CardScorerTest {
 
   private ArrayList<BJPlayerable> playersWinnerFirst;
   private ArrayList<BJPlayerable> playersWinnerLast;
@@ -79,61 +79,48 @@ public class BlackjackTest {
   }
 
   @Test
-  public void bustWhen22() {
+  public void canScorePlayerWithoutAces() {
 
-    this.testPlayer.addCard( this.kingOfSpades );
-    this.testPlayer.addCard( this.jackOfDiamonds );
-    this.testPlayer.addCard( this.twoOfHearts );
-    assertEquals( true, Blackjack.isBust( this.testPlayer ) );
-  }
-
-  @Test
-  public void blackjackIsNotBust() {
-
-    assertEquals( false, Blackjack.isBust( this.blackjackPlayer ) );
-  }
-
-  @Test
-  public void notBustWhen20() {
-
-    this.testPlayer.addCard( this.jackOfDiamonds );
+    this.testPlayer.addCard( this.fiveOfClubs );
     this.testPlayer.addCard( this.kingOfSpades );
 
-    assertEquals( false, Blackjack.isBust( this.testPlayer ) );
+    assertEquals( 15, CardScorer.scoreCards( this.testPlayer.getCards() ) );
   }
 
   @Test
-  public void winningPlayersPlayerFirst() {
-    ArrayList<BJPlayerable> expected = new ArrayList<BJPlayerable>();
-    expected.add( this.winningPlayer );
+  public void canScorePlayerWithAceLow() {
 
-    ArrayList<BJPlayerable> actual = Blackjack.winningPlayers( this.playersWinnerFirst );
+    this.testPlayer.addCard( this.fiveOfClubs );
+    this.testPlayer.addCard( this.kingOfSpades );
+    this.testPlayer.addCard( this.aceOfClubs );
 
-    assertEquals( 1, actual.size() );
-    assertEquals( expected, actual );
+    assertEquals( 16, CardScorer.scoreCards( this.testPlayer.getCards() ) );
   }
 
   @Test
-  public void winningPlayersPlayerLast() {
-    ArrayList<BJPlayerable> expected = new ArrayList<BJPlayerable>();
-    expected.add( this.winningPlayer );
+  public void canScorePlayerWithAceHigh() {
 
-    ArrayList<BJPlayerable> actual = Blackjack.winningPlayers( this.playersWinnerLast );
+    this.testPlayer.addCard( this.fiveOfClubs );
+    this.testPlayer.addCard( this.aceOfClubs );
 
-    assertEquals( 1, actual.size() );
-    assertEquals( expected, actual );
+    assertEquals( 16, CardScorer.scoreCards( this.testPlayer.getCards() ) );
   }
 
   @Test
-  public void winningPlayersTwoWayDraw() {
-    ArrayList<BJPlayerable> expected = new ArrayList<BJPlayerable>();
-    expected.add( this.winningPlayer );
-    expected.add( this.winningPlayer );
+  public void canScorePlayerWithMultipleAces() {
 
-    ArrayList<BJPlayerable> actual = Blackjack.winningPlayers( this.playersTwoWayDraw );
+    this.testPlayer.addCard( this.aceOfHearts );
+    this.testPlayer.addCard( this.aceOfClubs );
+    this.testPlayer.addCard( this.aceOfDiamonds );
+    this.testPlayer.addCard( this.aceOfSpades );
 
-    assertEquals( 2, actual.size() );
-    assertEquals( expected, actual );
+    assertEquals( 14, CardScorer.scoreCards( this.testPlayer.getCards() ) );
+  }
+
+  @Test
+  public void canScoreBlackjack() {
+
+    assertEquals( 21, CardScorer.scoreCards( this.blackjackPlayer.getCards() ) );
   }
 
 }
