@@ -2,15 +2,14 @@ package blackjack;
 
 import card_game_lib.*;
 import card_game_lib.french_deck.*;
-import card_game_lib.user_interface.*;
 
 import java.util.*;
 
 public class Blackjack {
 
-  private GameManager gameManager;
+  private BJUserInterface ui;
   private Dealer dealer;
-  private ArrayList<BlackjackPlayer> players;
+  private ArrayList<BJPlayerable> players;
 
   public static final int TARGET_SCORE = 21;
   public static final int ACE_HIGH_VALUE = 11;
@@ -33,9 +32,9 @@ public class Blackjack {
     rankValues.put( FrenchRank.KING, new Integer( 10 ) );
   }
 
-  public Blackjack( GameManager gameManager, ArrayList<BlackjackPlayer> players ) {
+  public Blackjack( BJUserInterface ui, ArrayList<BJPlayerable> players ) {
 
-    this.gameManager = gameManager;
+    this.ui = ui;
     this.players = players;
 
     this.dealer = new Dealer( this.players, new FrenchDeck() );
@@ -54,7 +53,7 @@ public class Blackjack {
   //
   //       this.dealer.dealCardToPlayer( player );
   //
-  //       playerIsBust = this.isBust( player.getHand() );
+  //       playerIsBust = this.isBust( player );
   //       playerIsSticking = player.isSticking();
   //     }
   //   }
@@ -62,20 +61,20 @@ public class Blackjack {
   //   return Blackjack.winningPlayers( this.players );
   // }
 
-  public static ArrayList<BlackjackPlayer> winningPlayers( ArrayList<BlackjackPlayer> players ) {
+  public static ArrayList<BJPlayerable> winningPlayers( ArrayList<BJPlayerable> players ) {
 
-    ArrayList<BlackjackPlayer> winningPlayers = new ArrayList<BlackjackPlayer>();
+    ArrayList<BJPlayerable> winningPlayers = new ArrayList<BJPlayerable>();
 
     int winningScore = 0;
-    BlackjackPlayer aPlayer;
+    BJPlayerable aPlayer;
     int aScore;
 
     for (int i = 0; i < players.size(); i++ ) {
 
       aPlayer = players.get( i );
-      aScore = Blackjack.scoreHand( aPlayer.getHand() );
+      aScore = Blackjack.scorePlayer( aPlayer );
 
-      if ( !Blackjack.isBust( aPlayer.getHand() ) ) {
+      if ( !Blackjack.isBust( aPlayer ) ) {
 
         if ( aScore == winningScore ) {
           winningPlayers.add( aPlayer );
@@ -92,13 +91,13 @@ public class Blackjack {
     return winningPlayers;
   }
 
-  public static int scoreHand( Hand hand ) {
+  public static int scorePlayer( BJPlayerable player ) {
 
     int score = 0;
     int numberOfAces = 0;
     FrenchRank rank;
 
-    for ( Card card : hand.getCards() ) {
+    for ( Card card : player.getCards() ) {
 
       rank = (FrenchRank)card.getRank();
 
@@ -123,9 +122,9 @@ public class Blackjack {
     return score;
   }
 
-  public static boolean isBust( Hand hand ) {
+  public static boolean isBust( BJPlayerable player ) {
 
-    if ( Blackjack.scoreHand( hand ) > TARGET_SCORE ) {
+    if ( Blackjack.scorePlayer( player ) > TARGET_SCORE ) {
       return true;
     }
 

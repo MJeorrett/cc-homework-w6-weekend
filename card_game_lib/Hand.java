@@ -43,10 +43,8 @@ public class Hand implements Displayable {
     return false;
   }
 
-  public Card[] getCards() {
-    Card[] result = new Card[this.cardsRemaining()];
-    this.cards.toArray( result );
-    return result;
+  public ArrayList<Card> getCards() {
+    return this.cards;
   }
 
   public String toDisStr() {

@@ -8,24 +8,24 @@ public class GameManager {
 
   public static final int MAX_NUMBER_PLAYERS = 10;
 
-  private UserInterface ui;
+  private BJUserInterface ui;
   private Blackjack game;
 
   public GameManager() {
 
-    this.ui = new UserInterface();
+    this.ui = new BJUserInterface();
 
     String[] playerNames = ui.getPlayerNames( 1, MAX_NUMBER_PLAYERS );
-    ArrayList<BlackjackPlayer> players = new ArrayList<BlackjackPlayer>();
+    ArrayList<BJPlayerable> players = new ArrayList<BJPlayerable>();
 
-    BlackjackPlayer player;
+    AIBJPlayer player;
 
     for ( String playerName : playerNames ) {
-      player = new BlackjackPlayer( playerName );
+      player = new AIBJPlayer( playerName );
       players.add( player );
     }
 
-    this.game = new Blackjack( this, players );
+    this.game = new Blackjack( this.ui, players );
 
     System.out.println( "---" );
     System.out.println( "Ready to start with players: " );

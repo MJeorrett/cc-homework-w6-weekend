@@ -15,7 +15,7 @@ public class DealerTest {
   private Dealer testDealer;
   private Dealer threeOfHeartsDealer;
 
-  private ArrayList<BlackjackPlayer> testPlayers;
+  private ArrayList<BJPlayerable> testPlayers;
 
   private Player testPlayer;
 
@@ -24,11 +24,11 @@ public class DealerTest {
   @Before
   public void before() throws DeckEmptyException {
 
-    this.testPlayers = new ArrayList<BlackjackPlayer>();
-    testPlayers.add( new BlackjackPlayer( "James" ) );
-    testPlayers.add( new BlackjackPlayer( "Mark" ) );
-    testPlayers.add( new BlackjackPlayer( "Derek" ) );
-    testPlayers.add( new BlackjackPlayer( "Matthew" ) );
+    this.testPlayers = new ArrayList<BJPlayerable>();
+    testPlayers.add( new AIBJPlayer( "James" ) );
+    testPlayers.add( new AIBJPlayer( "Mark" ) );
+    testPlayers.add( new AIBJPlayer( "Derek" ) );
+    testPlayers.add( new AIBJPlayer( "Matthew" ) );
 
     this.testDealer = new Dealer( this.testPlayers, new FrenchDeck() );
 
@@ -40,7 +40,7 @@ public class DealerTest {
 
     this.threeOfHeartsDealer = new Dealer( this.testPlayers, spyDeck );
 
-    this.testPlayer = new BlackjackPlayer( "John" );
+    this.testPlayer = new AIBJPlayer( "John" );
   }
 
   @Test
@@ -53,7 +53,7 @@ public class DealerTest {
 
     this.testDealer.dealRound();
 
-    for ( Player player : this.testPlayers ) {
+    for ( Playerable player : this.testPlayers ) {
       assertEquals( 1, player.cardsRemaining() );
     }
   }
@@ -63,7 +63,7 @@ public class DealerTest {
 
     this.testDealer.dealRounds( 5 );
 
-    for ( Player player : this.testPlayers ) {
+    for ( Playerable player : this.testPlayers ) {
       assertEquals( 5, player.cardsRemaining() );
     }
   }

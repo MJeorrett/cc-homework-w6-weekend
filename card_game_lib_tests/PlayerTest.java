@@ -20,7 +20,7 @@ public class PlayerTest {
 
   @Before
   public void before() {
-    this.testPlayer = new BlackjackPlayer( "Martin" );
+    this.testPlayer = new AIBJPlayer( "Martin" );
 
     this.twoOfHearts = new Card( FrenchSuit.HEARTS, FrenchRank.TWO );
     this.fiveOfClubs = new Card( FrenchSuit.CLUBS, FrenchRank.FIVE );

@@ -3,11 +3,11 @@ package blackjack;
 import card_game_lib.*;
 import card_game_lib.user_interface.*;
 
-public class HumanBJPlayer extends Player implements Dealable, BJPlayerable {
+public class HumanBJPlayer extends Player implements BJPlayerable {
 
-  private UserInterface ui;
+  private BJUserInterface ui;
 
-  public HumanBJPlayer( String playerName, UserInterface ui ) {
+  public HumanBJPlayer( String playerName, BJUserInterface ui ) {
 
     super( playerName );
     this.ui = ui;
@@ -15,7 +15,7 @@ public class HumanBJPlayer extends Player implements Dealable, BJPlayerable {
 
   public boolean isSticking() {
 
-    return this.ui.getIsStickingForPlayer( this );
+    return this.ui.playerIsSticking( this );
   }
 
 }

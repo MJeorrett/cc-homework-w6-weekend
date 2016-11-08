@@ -1,3 +1,5 @@
+import java.util.*;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertArrayEquals;
 import org.junit.*;
@@ -56,8 +58,12 @@ public class HandTest {
 
     this.testHand.addCard( this.fiveOfClubs );
     this.testHand.addCard( this.kingOfSpades );
-    Card[] expected = { this.fiveOfClubs, this.kingOfSpades };
-    assertArrayEquals( expected, this.testHand.getCards() );
+
+    ArrayList<Card> expected = new ArrayList<Card>();
+    expected.add( this.fiveOfClubs );
+    expected.add( this.kingOfSpades );
+
+    assertEquals( expected, this.testHand.getCards() );
   }
 
   @Test
